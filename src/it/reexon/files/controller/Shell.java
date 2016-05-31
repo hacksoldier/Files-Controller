@@ -1,4 +1,5 @@
 package it.reexon.files.controller;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,17 +18,16 @@ public class Shell
 
     public static void main(String[] args)
     {
-
+        logger.debug("Beging");
         try
         {
-
+            
         }
         catch (Exception e)
         {
-            // TODO: handle exception
+            logger.fatal("Fatal Error: ", e);
         }
-        // TODO Auto-generated method stub
-
+        logger.debug("Finish");
     }
 
 }
