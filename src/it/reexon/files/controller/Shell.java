@@ -1,3 +1,8 @@
+package it.reexon.files.controller;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 /**
  * Copyright (c) 2016 Marco Velluto. All rights reserved.
  */
@@ -8,13 +13,11 @@
  */
 public class Shell
 {
+    private static final Logger logger = LogManager.getLogger(Shell.class);
 
-    /**
-     * @param args
-     */
     public static void main(String[] args)
     {
-        
+
         try
         {
 

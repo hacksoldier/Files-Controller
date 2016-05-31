@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" shutdownHook="disable">
+	<Appenders>
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout pattern="%-20d %-5p [%t] %-15c - %-10M - %m%n" />
+		</Console>
+
+		<RollingFile name="DEVELOP"
+			fileName="logs/it.reexon.file.controller-develop.log"
+			filePattern="logs/it.reexon.file.controller-develop-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="%-20d %-5p [%t] %-15c - %-10M - %m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" />
+		</RollingFile>
+
+		<RollingFile name="ERROR"
+			fileName="logs/it.reexon.file.controller-error.log"
+			filePattern="logs/it.reexon.file.controller-develop-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="%-20d %-5p [%t] %-15c - %-10M - %m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="org.apache" level="error" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+			<AppenderRef ref="DEVELOP" />
+			<AppenderRef ref="ERROR" />
+		</Logger>
+
+		<Logger name="it.reexon" level="debug" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+			<AppenderRef ref="DEVELOP" />
+		</Logger>
+
+		<Logger name="it.reexon.lib" level="error" additivity="false">
+			<AppenderRef ref="ERROR" />
+		</Logger>
+	</Loggers>
+</Configuration>
